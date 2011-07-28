@@ -1,5 +1,5 @@
 resque-web is mounted here:
-http://localhost:3000/resque/overview
+http://freemium-web.heroku.com/resque/overview
 
 heroku apps:create freemium-web --stack cedar --remote heroku
 git push heroku master
