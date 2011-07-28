@@ -1,2 +1,22 @@
 resque-web is mounted here:
 http://localhost:3000/resque/overview
+
+heroku apps:create freemium-web --stack cedar --remote heroku
+git push heroku master
+
+heroku apps:create freemium-worker --stack cedar --remote worker
+git push worker master
+
+heroku apps:create freemium-clock --stack cedar --remote clock
+git push clock master
+
+heroku scale web=1 --app=freemium-web
+heroku scale web=0 worker=1 --app=freemium-worker
+heroku scale web=0 clock=1 --app=freemium-clock
+
+heroku addons:add redistogo:nano --app=freemium-web
+heroku addons:add redistogo:nano --app=freemium-worker
+heroku addons:add redistogo:nano --app=freemium-clock
+
+heroku config:add `heroku config -s --app=freemium-web|grep redis` --app=freemium-worker
+heroku config:add `heroku config -s --app=freemium-web|grep redis` --app=freemium-clock
