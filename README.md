@@ -4,10 +4,10 @@ read the article:
 http://blog.nofail.de/2011/07/heroku-cedar-background-jobs-for-free/
 
 see the app:
-http://freemium-web.heroku.com
+https://freemium-web.herokuapp.com
 
 resque-web is mounted here:
-http://freemium-web.heroku.com/resque/overview
+https://freemium-web.herokuapp.com/resque/overview
 
 setup:
 
